@@ -17,12 +17,15 @@
         <div class="header">
             <div class="container">
                 <nav>
+                    
                     <div class="logo">
                         <a href="#">
                             <img src="pexels-noe-cataño-2115950.jpg" alt="" >
                         </a>
                     </div>
-                        <div class="navbar">
+                    <div class='menu-icon' id='menu-icon'>&#9776;</div>
+                        <div class="navbar" id="nav">
+                            
                             <ul>
                                 <li class="nav-item"><a href="#">Home</a></li>
                                 <li class="nav-item"><a href="#">About</a></li>
@@ -39,6 +42,7 @@
                         </div>
                     
                 </nav>
+               
                 <div class="mobile-menu">
                     <nav class="mobile-nav">
                         <button class="closebtn"><i class="fa-solid fa-xmark"></i></button>
@@ -117,7 +121,70 @@
     
 </body>
 <style>
-    @property --rotate{
+  body.item-view .centered-top, 
+  
+  .post-share-buttons,
+ 
+  .bg-photo-container,
+  .bg-photo-overlay
+  {
+    display:none;
+  }
+  
+  a.report_abuse,
+  .sidebar-container, .sidebar-container,
+  .sidebar-container .sidebar_top,
+  .sidebar-container, .sidebar-container .sidebar_bottom,
+  .sidebar-container .navigation, .sidebar-container .sidebar_top_wrapper, 
+    body.collapsed-header .centered-top-container .widget.Header h1{
+    background-color: var(--bg01);
+      width:250px;
+       top:25px;
+     
+  } 
+  
+  .sidebar-container .navigation, .sidebar-container .sidebar_top_wrapper,
+  .sidebar-container .sidebar_top{
+     border:2px solid purple;
+    border-radius:50px;
+   
+    
+  }
+    
+  .post-body{
+     margin:0;
+     background-color: var(--bg01);
+  }
+  .Blog .blog-posts .post-outer-container .post-outer{
+    padding-bottom: 0;
+  
+ 
+  }
+ .Blog .blog-posts .post-outer-container,
+  .centered-bottom{
+    padding:0;
+  }
+
+    
+  .page-body.widget{
+    margin-bottom:0;
+   
+  }
+  .page-body .centered {
+    padding: 0;
+    max-width: unset;
+    
+  }
+  @media screen and (max-width: 800px) {
+    div.widget.Blog .blog-posts .post-outer-container {
+        padding: 0;
+    }
+    .banner-content .Cnt-img{
+      width: 58%;
+    }
+}
+   
+ @property --rotate{
     syntax: "<angle>";
     initial-value: 132deg;
     inherits: false;
@@ -132,14 +199,15 @@
     --bg06:linear-gradient(25deg,#ff00ff,#4020f4fd);
 
 }
-
+body{
+    background-color: #0F051D;
+}
 *{
 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
-  
 
 }
 a,
@@ -150,9 +218,7 @@ input{
     text-decoration: none;
     user-select: none;
 }
-body{
-    background-color: var(--bg01);
-}
+
 section{
     position: relative;
     padding: 290px 50px 50px 50px;
@@ -168,15 +234,16 @@ section{
     height: auto;
 }
 
-.container{
-    padding-left: 15px;
+.container-main{
+    
+    padding-left:15px;
     padding-right: 15px;
     max-width: 1310px !important;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
 }
-nav{
+ nav{
     display: flex;
     width: 100%;
     position: relative;
@@ -184,22 +251,17 @@ nav{
     padding: 10px;
     
 
-}
-:root{
-    --bg01:#0F051D;
-    --bg02:#fff;
-    --bg03:#ff00ea;
-    --bg04:#2600fc;
-    --bg05:#741ff5;
-    --bg06:linear-gradient(25deg,#ff00ff,#4020f4fd);
 
 }
-    .navbar{
+ .navbar{
     display: flex;
     flex-grow: 1;
     padding: 10px;
 }
-
+nav .logo a img{
+    width: 40px;
+  
+}
 .navbar ul{
     display: flex;
     padding: 0;
@@ -210,14 +272,22 @@ nav{
     
 
 }
-
+    
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+  color: #fff;
+  
+}
+    
 .navbar ul li {
     display: block;
     position: relative;
     list-style: none;
 
 }
- 
+
 .navbar ul li a{
     text-transform: capitalize;
     color: #fff;
@@ -228,20 +298,19 @@ nav{
     z-index: 1;
     outline: none;
     font-weight: 600;
-    font-family: monospace;
+   font-family: monospace;
     font-size: 16px;
-  
     
   
 }
-.navbar ul li::after{
-    content:'';
+    .navbar ul li::after{
+    content: '';
     height: 3px;
     width: 0%;
     background:var(--bg06);
     position: absolute;
     left: 0;
-    bottom: -11px;
+    bottom: -5px;
     transition: 0.5s;
 
 }
@@ -260,6 +329,86 @@ nav{
     background: var(--bg06);
     border: none;
     font-weight: 600;
+}
+ 
+
+ 
+   @media only screen and (max-width: 800px) {
+   
+   
+     .menu-icon {
+    display: block;
+  }
+.navbar {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #0F051D;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+     z-index: 1;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+     .navbar ul li a{
+     padding: 30px 18px;
+    }
+}
+     .ms{
+    
+    position: relative;
+  
+    width: 100%;
+    border: 2px solid #dc0fef;
+    border-radius: 35px;
+      
+    background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    overflow: hidden;
+    transition: 1s;
+    
+    
+} 
+   
+   
+   
+ @media only screen and (max-width: 800px){
+    .navbar ul li a{
+     padding: 30px 18px;
+    }
+    .ms{
+      width:99%;
+    left:0%;
+    }
+    
+.btn-area .btn{
+    top: 100px;
+}
+    }
+
+.btn-area .btn{
+    position: relative;
+    color: #fff;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 50px;
+    background: var(--bg06);
+    border: none;
+    font-weight: 600;
+    
 }
 
 .OC-Btn{
@@ -390,6 +539,9 @@ nav{
 }
 .banner-content .Cnt-info{
     width: 58%;
+    
+    left: 30%;
+   
     position: relative;
    
 
@@ -516,6 +668,7 @@ nav{
 
 .banner-content .Cnt-img{
     display: flex;
+    right: 30%;
     justify-content: flex-end;
     align-items: center;
     
@@ -523,6 +676,7 @@ nav{
 }
 .banner-content .Cnt-img .banner-img{
     position: relative;
+
     display: flex;
     width: 550px;
     height: 450px;
@@ -677,7 +831,63 @@ nav{
 .flw-icon a i{
     transform: rotate(-90deg);
 }
-   @media only screen and (max-width: 800px) {
+   .you{
+  width:300px;
+       position: relative;
+    display: flex;
+   
+    
+    background-color: #081021;
+    border-radius: 30px;
+     z-index:99;
+  }
+  
+  
+  .you::before{
+    content: '';
+    display: block;
+    background: linear-gradient(var(--rotate), var(--bg03), var(--bg04));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1 !important;
+    left: 0;
+    top: 0;
+
+    animation: spin 2.5s linear infinite;
+    scale: 1.046;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.185);
+}
+  
+.you::after{
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    z-index: -2;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(1.2);
+    background: linear-gradient(var(--rotate), var(--bg03), var(--bg04));
+    transition: opacity 0.5s;
+    animation: spin 2.5s linear infinite;
+    filter: blur(80px);
+    
+    opacity: 0.3;
+
+}
+  
+@keyframes spin{
+    0%{
+        --rotate: 0deg;
+    }
+    100%{
+        --rotate: 360deg;
+    }
+}
+
+  @media only screen and (max-width: 800px) {
     .banner-content .Cnt-img .banner-img{
       left: 42%;
         max-width: 300px;
@@ -686,6 +896,12 @@ nav{
     .banner-content{
         flex-direction: column-reverse;
 
+    }
+    .banner-content .Cnt-img{
+        right: 5%;
+    }
+    .banner-content .Cnt-info{
+        left: 10%;
     }
     
     .banner-content .Cnt-info .title-inner h2{
@@ -728,9 +944,51 @@ nav{
 
    
   }
-  
+
 
 </style>
+<script>
+    document.getElementById('menu-icon').addEventListener('click', function() {
+  const nav = document.getElementById('nav');
+  if (nav.style.display === 'flex') {
+    nav.style.display = 'none';
+  } else {
+    nav.style.display = 'flex';
+  }
+});</script>
+<script>
+
+    var slides=document.querySelectorAll('.tiile-animation p');
+var slideIndex=0;
+slides[slideIndex].classList.add('visible');
+
+setInterval(function(){
+    slides[slideIndex].classList.remove('visible');
+    slides[slideIndex].classList.add('hedden');
+    slideIndex=(slideIndex + 1)% slides.length;
+    slides[slideIndex].classList.remove('hedden');
+    slides[slideIndex].classList.remove('visible');
+    
+},2000);
+
+let mobilenav=document.querySelector('.mobile-menu');
+document.querySelector('.OC-btn').oneclick = () => {
+    mobilenav.classList.add(active);
+}
+document.querySelector('.closebtn').oneclick = () => {
+    mobilenav.classList.remove('active');
+}
+
+VanillaTilt.init(document.querySelectorAll(".box"),{
+    max:15,
+    speed:200
+});
+
+
+
+
+</script>
+
 <script>
     TweenMax.from(".logo", 1,{
     opacity:0,
@@ -780,5 +1038,5 @@ TweenMax.from(".btn-area .btn",1 ,{
     ease:Expo.easeinout
 })
 
-</script>
+    </script>
 </html>
