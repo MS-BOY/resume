@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>six</title>
+</head>
+<body>
+    <div class="squar">
+    
+ <div class="mini-box">
+
+    <div class="thumbnail" onclick="viewImage('log.jpg')">
+        <img src="log.jpg" alt="Image 1">
+    </div>
+    
+ </div>
+ <div class="mini-box">
+
+    <div class="thumbnail" onclick="viewImage('image1.jpg')">
+        <img src="https://images.pexels.com/photos/733745/pexels-photo-733745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Image 1">
+    </div>
+
+ </div>
+ <div class="mini-box">
+    <div class="thumbnail" onclick="viewImage('image2.jpg')">
+        <img src="image2_thumbnail.jpg" alt="Image 2">
+    </div>
+ </div>
+ <div class="mini-box">
+
+    <div class="thumbnail" onclick="viewImage('image3.jpg')">
+        <img src="image3_thumbnail.jpg" alt="Image 3">
+    </div>
+ </div>
+    </div>
+    
+        
+        
+   
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+</body>
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+
+.thumbnail {
+    cursor: pointer;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+:root{
+    --bg01:#0F051D;
+    --bg02:#fff;
+    --bg03:#ff00ea;
+    --bg04:#2600fc;
+    --bg05:#741ff5;
+    --bg06:linear-gradient(25deg,#ff00ff,#4020f4fd);
+
+}
+body{
+    background-color: #f3f3f3;
+}
+
+    .squar{
+        width: 100%;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+       
+        
+}
+
+    .mini-box{
+        display: inline-flex;
+    position: relative;
+    height: 220px;
+    width: 300px;
+    
+ 
+    margin: 18px;
+    left: 4%;
+ 
+    cursor: pointer;
+      
+     
+        border-radius:  40px;
+        
+
+  background-color: #081021;
+
+    
+    }
+    .mini-box::before{
+    content: '';
+    display: block;
+    background: linear-gradient(var(--rotate), var(--bg03), var(--bg04));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1 !important;
+    left: 0;
+    top: 0;
+    border-radius: 38px;
+    animation: spin 2.5s linear infinite;
+    scale: 1.046;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.185);
+}
+
+.mini-box::after{
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    z-index: -2;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(1.2);
+    background: linear-gradient(var(--rotate), var(--bg03), var(--bg04));
+    transition: opacity 0.5s;
+    animation: spin 2.5s linear infinite;
+    filter: blur(80px);
+    border-radius: 40px;
+    opacity: 0.3;
+
+}
+
+
+@keyframes spin{
+    0%{
+        --rotate: 0deg;
+    }
+    100%{
+        --rotate: 360deg;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    
+}
+
+</style>
+
+<script>
+    function viewImage(src) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImage");
+    var captionText = document.getElementById("caption");
+
+    modal.style.display = "block";
+    modalImg.src = src;
+    captionText.innerHTML = src.substring(src.lastIndexOf('/') + 1);
+}
+
+function closeModal() {
+    var modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+}
+
+</script>
+</html>
